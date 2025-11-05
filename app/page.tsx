@@ -5,48 +5,71 @@ import { Badge } from "@/components/ui/badge";
 export default function Home() {
   return (
     <div className="min-h-screen bg-background">
-      {/* Navigation */}
-      <nav className="border-b border-border">
+      {/* Navigation - Overlay Style */}
+      <nav className="absolute top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-border/50">
         <div className="container mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             <div className="text-xl font-bold">DesignSystem</div>
-            <div className="flex items-center gap-6">
-              <a href="#" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+            <div className="flex items-center gap-8">
+              <a href="#" className="text-sm text-foreground/70 hover:text-foreground transition-colors duration-300">
                 Features
               </a>
-              <a href="#" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-                About
+              <a href="#" className="text-sm text-foreground/70 hover:text-foreground transition-colors duration-300">
+                What We Test
               </a>
-              <Button className="rounded-full">Get Started</Button>
+              <a href="#" className="text-sm text-foreground/70 hover:text-foreground transition-colors duration-300">
+                Reviews
+              </a>
+              <Button className="rounded-full bg-primary hover:bg-primary/90">Get Started</Button>
             </div>
           </div>
         </div>
       </nav>
 
-      {/* Hero Section */}
-      <section className="container mx-auto px-6 py-20 md:py-32">
-        <div className="max-w-4xl mx-auto text-center space-y-8">
-          <Badge variant="secondary" className="text-sm px-4 py-1.5">
-            Professional Design System
-          </Badge>
+      {/* Hero Section with Background Image */}
+      <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
+        {/* Background Image with Overlay */}
+        <div className="absolute inset-0">
+          <div
+            className="absolute inset-0 bg-cover bg-center transform scale-110"
+            style={{
+              backgroundImage: 'url(/hero-bg.avif)',
+              backgroundPosition: 'center center'
+            }}
+          />
+          {/* Dark overlay for text contrast */}
+          <div className="absolute inset-0 bg-black/40" />
+        </div>
 
-          <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-foreground leading-tight">
-            Build with confidence,
-            <br />
-            <span className="text-primary">design with purpose</span>
-          </h1>
+        {/* Hero Content */}
+        <div className="relative z-10 container mx-auto px-6 py-32 md:py-40">
+          <div className="max-w-4xl mx-auto text-center space-y-8">
+            <Badge variant="secondary" className="text-sm px-4 py-1.5 bg-white/90 text-foreground border-0">
+              Professional Design System
+            </Badge>
 
-          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            Move beyond guesswork. Create professional, accessible websites with a systematic approach to design using Tailwind CSS and shadcn/ui.
-          </p>
+            <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-white leading-tight">
+              Build with confidence,
+              <br />
+              <span className="text-primary">design with purpose</span>
+            </h1>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center pt-6">
-            <Button size="lg" className="rounded-full px-8 text-base">
-              Start Building
-            </Button>
-            <Button size="lg" variant="outline" className="rounded-full px-8 text-base">
-              View Demo
-            </Button>
+            <p className="text-lg md:text-xl text-white/90 max-w-2xl mx-auto leading-relaxed">
+              Move beyond guesswork. Create professional, accessible websites with a systematic approach to design.
+            </p>
+
+            <div className="flex flex-col sm:flex-row gap-4 justify-center pt-6">
+              <Button size="lg" className="rounded-full px-8 text-base bg-primary hover:bg-primary/90">
+                Start Building
+              </Button>
+              <Button
+                size="lg"
+                variant="outline"
+                className="rounded-full px-8 text-base bg-white/10 text-white border-white/30 hover:bg-white/20 backdrop-blur-sm"
+              >
+                View Demo
+              </Button>
+            </div>
           </div>
         </div>
       </section>
